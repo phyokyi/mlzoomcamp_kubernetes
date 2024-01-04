@@ -47,3 +47,7 @@ pipenv run python gateway.py
 
 docker build -t zoomcamp-10-gateway:001 -f image-gateway.dockerfile .
 
+docker build -t zoomcamp-10-gateway:002 -f image-gateway.dockerfile .
+
+docker-compose up
+docker-compose up -d

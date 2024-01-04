@@ -6,8 +6,11 @@ from keras_image_helper import create_preprocessor
 
 from flask import Flask, request, jsonify
 from proto import np_to_protobuf
+import os
 
-host = 'localhost:8500'
+host = os.getenv('TF_SERVING_HOST','localhost:8500')
+
+#host = 'localhost:8500'
 channel = grpc.insecure_channel(host)
 stub = prediction_service_pb2_grpc.PredictionServiceStub(channel)
 preprocessor = create_preprocessor('xception',target_size=(299,299))
